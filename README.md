@@ -16,8 +16,16 @@
 - Python 3 development headers  
 - nanobind (as a git submodule under `externals/nanobind`)
 
-## Directory Layout
+The nanobind is used which is more recent than pybind11. In order to create python bindings for your c++ code using nanobind, create a folder called externals inside your ROS package folder and download the nanobind repository and its submodules using following instructions:
+```bash
+cd ~/catkin_ws/src/PACKAGE_NAME/externals
+git clone https://github.com/wjakob/nanobind.git
+cd ~/catkin_ws/src/PACKAGE_NAME/externals/nanobind
+git submodule update --init --recursive
+```
 
+## Directory Layout
+Here is a sample folder structure of the package
 ```
 nanobind_roscpp/
 ├── CMakeLists.txt
