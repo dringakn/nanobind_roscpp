@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node pkg="nanobind_roscpp" type="test.py" name="test" output="screen"/>
+
+</launch>

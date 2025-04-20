@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>nanobind_roscpp</name>
+  <version>1.0.0</version>
+  <description>The nanobind_roscpp package demonstrate basics to write python bindings for ros c++ code.</description>
+  <maintainer email="dringakn@gmail.com">Dr. -Ing. Ahmad Kamal Nasir</maintainer>
+  <license>BSD-3</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_export_depend>roscpp</build_export_depend>
+  <exec_depend>roscpp</exec_depend>
+  <build_depend>python3</build_depend>
+  <build_export_depend>python3</build_export_depend>
+  <exec_depend>python3</exec_depend>
+  <exec_depend>rospy</exec_depend>
+
+  <export>
+  </export>
+</package>
