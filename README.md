@@ -59,12 +59,6 @@ catkin build
 source install/setup.bash
 ```
 
-This places:
-
-- C++ headers in `install/include/…`  
-- `point_utils_py*.so` and `__init__.py` in `install/lib/python3/dist-packages/nanobind_roscpp/`  
-- `test.py` in `install/lib/my_ros_pkg/`
-
 ## Usage
 
 ### From command line
