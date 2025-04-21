@@ -5,23 +5,26 @@
 namespace nb = nanobind;
 
 NB_MODULE(point_utils_py, m) {
-    m.doc() = "Bindings for PointUtils";
+    m.doc() = "Python bindings for PointUtils (nanobind_roscpp)";
 
-    // Expose Point struct
-    nb::class_<Point>(m, "Point")
-        .def(nb::init<double, double>(),
-             nb::arg("x") = 0.0,
-             nb::arg("y") = 0.0)
-        .def_rw("x", &Point::x)
-        .def_rw("y", &Point::y)
-        .def("__repr__", [](const Point &p) {
-            return "<Point x=" + std::to_string(p.x)
-                 + " y=" + std::to_string(p.y) + ">";
-        });
+    //–– Point class with docstring ––//
+    nb::class_<Point>(m, "Point",
+        "A 2D point with x and y coordinates.")
+      .def(nb::init<double, double>(),
+           "Construct a Point given x and y.",
+           nb::arg("x") = 0.0,
+           nb::arg("y") = 0.0)
+      .def_rw("x", &Point::x, "X coordinate")
+      .def_rw("y", &Point::y, "Y coordinate")
+      .def("__repr__", [](const Point &p) {
+          return "<Point x=" + std::to_string(p.x)
+               + " y=" + std::to_string(p.y) + ">";
+      });
 
-    // Expose distance function
+    //–– distance function with docstring ––//
     m.def("distance",
           &PointUtils::distance,
+          "Compute the Euclidean distance between two Points.",
           nb::arg("a"),
           nb::arg("b"));
 }

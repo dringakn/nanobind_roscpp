@@ -24,6 +24,29 @@ cd ~/catkin_ws/src/PACKAGE_NAME/externals/nanobind
 git submodule update --init --recursive
 ```
 
+## Build and Install via pip
+In order to install the built package using pip in to your system, install following build deps:
+```bash
+pip3 install --upgrade scikit-build cmake setuptools wheel
+sudo apt update
+sudo apt install -y \
+    build-essential \
+    python3-venv \
+    python3-pip \
+    cmake \
+    python3-dev \
+    python3-empy \
+    python3-catkin-pkg \
+    python3-rospkg \
+    python3-setuptools \
+    ninja-build
+```
+Then setup has a pyproject.toml already setup. For automatic building and installing use scripts/build_and_install_python_bindings.sh file 
+```bash
+cd scripts
+./build_and_install_python_bindings.sh
+```
+
 ## Directory Layout
 Here is a sample folder structure of the package
 ```
@@ -31,7 +54,7 @@ nanobind_roscpp/
 ├── CMakeLists.txt
 ├── package.xml
 ├── externals/
-│   └── nanobind/               # nanobind submodule
+│   └── nanobind/            # nanobind submodule
 ├── include/
 │   └── point_utils.h
 ├── src/
@@ -43,7 +66,8 @@ nanobind_roscpp/
 ├── scripts/
 │   └── test.py
 └── launch/
-    └── test.launch
+│   └── test.launch
+└── pyproject.toml          # for system installation 
 ```
 
 ## Build & Install

@@ -1,0 +1,71 @@
+# -----------------------------------------------------------------------------
+# pyproject.toml — Build configuration and metadata for PEP 517/518
+# -----------------------------------------------------------------------------
+
+[build-system]
+# What’s needed at build time, and which backend to invoke
+requires      = ["setuptools>=75.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# -----------------------------------------------------------------------------
+# Project metadata (PEP 621)
+# -----------------------------------------------------------------------------
+[project]
+# --- Identity ---
+name        = "nanobind_roscpp"                  # PyPI distribution name
+version     = "1.0.0"                            # Release version
+
+# --- Descriptions ---
+description = "Python bindings for roscpp using nanobind"
+readme      = "README.md"                        # Path to long description
+license     = { file = "LICENSE" }               # License file
+
+# --- Author & Support ---
+authors = [
+  { name = "Dr. Ing. Ahmad Kamal Nasir", email = "dringakn@gmail.com" }
+]
+maintainers = [
+  { name = "Dr. Ing. Ahmad Kamal Nasir", email = "dringakn@gmail.com" }
+]
+
+# --- Python compatibility & dependencies ---
+requires-python = ">=3.8"                        # Supported Python versions
+dependencies    = []                             # Runtime dependencies, e.g. ["numpy>=1.18"]
+
+# --- Optional metadata for PyPI display ---
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: C++",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+keywords = ["roscpp", "nanobind", "ROS", "C++", "bindings"]
+
+# --- Project URLs (the “missing info”) ---
+[project.urls]
+homepage      = "https://github.com/dringakn/nanobind_roscpp"
+repository    = "https://github.com/dringakn/nanobind_roscpp.git"
+documentation = "https://github.com/dringakn/nanobind_roscpp#readme"
+bugtracker    = "https://github.com/dringakn/nanobind_roscpp/issues"
+
+# -----------------------------------------------------------------------------
+# setuptools-specific configuration
+# -----------------------------------------------------------------------------
+[tool.setuptools]
+# Map the root package directory for setuptools
+package-dir = { "" = "python" }
+
+[tool.setuptools.packages.find]
+# Automatically discover packages under `python/`
+where = ["python"]
+
+[tool.setuptools.package-data]
+# Include compiled extensions so they end up in the wheel
+"nanobind_roscpp" = ["*.so"]
+
+# -----------------------------------------------------------------------------
+# Console entry-points
+# -----------------------------------------------------------------------------
+[project.scripts]
+# exposes a `test` command that runs your scripts/test.py:main()
+test = "nanobind_roscpp.test:main"
