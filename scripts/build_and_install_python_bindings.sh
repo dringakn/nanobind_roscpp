@@ -25,8 +25,7 @@ PACKAGE_NAME="nanobind_roscpp"
 
 echo "🔧 Configuring workspace to install into 'install/'"
 cd "${CATKIN_WS}"
-catkin config --install --workspace "${CATKIN_WS}"
-
+catkin config --install --workspace "${CATKIN_WS}" --cmake-args -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 echo "🏗️  Building all packages"
 catkin build --workspace "${CATKIN_WS}"
 
