@@ -1,5 +1,5 @@
-# 1. Require at least CMake 3.12 (for find_package(Python3 …) support)
-cmake_minimum_required(VERSION 3.12)
+# 1. Require at least CMake 3.15 (for find_package(Python3 …) support)
+cmake_minimum_required(VERSION 3.15)
 
 # 2. Declare Project name
 project(nanobind_roscpp)
